@@ -23,7 +23,10 @@ var (
 			// fmt.Println(viper.GetStringSlice("pattern"))
 			// fmt.Println(cmd.Flags().GetString("root"))
 
-			src.GetFileList(cmd)
+			collect := src.GetFileList(cmd)
+			for k, v := range collect {
+				fmt.Println(k, "value is ", v)
+			}
 		},
 	}
 )
