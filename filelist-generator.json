@@ -1,0 +1,16 @@
+{
+    "abc": "456",
+    "foo": "bar",
+    "ignore": [
+        "node_modules",
+        ".git",
+        "**/*.JPG",
+        "dist/favicon.ico"
+    ],
+    "descriptions": [
+        {
+            "match": "",
+            "desc": ""
+        }
+    ]
+}

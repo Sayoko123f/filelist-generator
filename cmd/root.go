@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"bytes"
+	"filelist-generator/src"
 	"fmt"
 	"log"
 	"os"
@@ -17,16 +18,17 @@ var (
 		Use:   "filelist-generator",
 		Short: "A tool.",
 		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Println(viper.GetString("root"))
-			fmt.Println(viper.GetString("outputFilename"))
-			fmt.Println(viper.GetStringSlice("ignore"))
-			fmt.Println(viper.GetStringSlice("pattern"))
-			fmt.Println(cmd.Flags().GetString("root"))
+			// fmt.Println(viper.GetString("root"))
+			// fmt.Println(viper.GetString("outputFilename"))
+			// fmt.Println(viper.GetStringSlice("ignore"))
+			// fmt.Println(viper.GetStringSlice("pattern"))
+			// fmt.Println(cmd.Flags().GetString("root"))
 
-			// collect := src.GetFileList(cmd)
-			// for k, v := range collect {
-			// 	fmt.Println(k, "value is ", v)
-			// }
+			collect := src.GetFileList(cmd)
+			dataset := src.TransformFileList(cmd, collect)
+			for k, v := range dataset {
+				fmt.Println(k, "value is ", v)
+			}
 		},
 	}
 )
